@@ -1,7 +1,7 @@
 
 import './style.css'
 import NavMenu from './components/NavMenu'
-import TrackList from './components/Tracklist'
+import TrackListSearch from './components/TracklistSearch'
 import SideBar from './components/Sidebar'
 import AudioPlayer from './components/AudioPlayer'
 
@@ -12,7 +12,7 @@ function App() {
       <div className="container">
         <main className="main">
 					<NavMenu/>
-					<TrackList/>
+					<TrackListSearch/>
 					<SideBar/>
 					<AudioPlayer/>
         </main>
