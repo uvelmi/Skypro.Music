@@ -1,81 +1,119 @@
-import { useState } from 'react';
+import React, { useState } from "react";
+
+const Filters = [
+  {
+    authors: "Michael Jackson",
+    years: "2005",
+    genre: "Pop",
+  },
+  {
+    authors: "Calvin Harris",
+    years: "2008",
+    genre: "Disco",
+  },
+  {
+    authors: "Zhu",
+    years: "2015",
+    genre: "Electronica, Deep House",
+  },
+  {
+    authors: "Arctic Monkeys",
+    years: "2013",
+    genre: "Indie rock",
+  },
+  {
+    authors: "Eminem",
+    years: "2021",
+    genre: "Hip hop",
+  },
+  {
+    authors: "Adele",
+    years: "2023",
+    genre: "Pop, soul",
+  },
+	{
+    authors: "Bon Jovi",
+    years: "1994",
+    genre: "Rock",
+  },
+	{
+    authors: "Rammstein",
+    years: "2001",
+    genre: "Metall",
+  }
+];
 
 const FilterSearch = () => {
-  const Filters = [
-    {
-      authors: 'Michael Jackson',
-      years: '2005',
-      genre: 'Pop'
-    },
-    {
-      authors: 'Calvin Harris',
-      years: '2008',
-      genre: 'Disco'
-    },
-    {
-      authors: 'Zhu',
-      years: '2015',
-      genre: 'Electronica, Deep House'
-    },
-    {
-      authors: 'Arctic Monkeys',
-      years: '2013',
-      genre: 'Indie rock'
-    },
-    {
-      authors: 'Eminem',
-      years: '2021',
-      genre: 'Hip hop'
-    },
-    {
-      authors: 'Adele',
-      years: '2023',
-      genre: 'Pop, soul'
-    }
-  ];
-  const [isActive, setActive] = useState('');
-  const [popupContent, setPopupContent] = useState(null);
+  const [activeButton, setActiveButton] = useState("");
 
-  const handleFilter = (e, type) => {
-    if (isActive === e.target.id) {
-      document.getElementById(isActive).classList.remove('active');
-      setActive('');
-      setPopupContent(null);
+  const toggleMenu = (e) => {
+    const button = e.target;
+    if (button.classList.contains("active")) {
+      button.classList.remove("active");
+      setActiveButton("");
     } else {
-      document.getElementById(isActive).classList.remove('active');
-      e.target.classList.add('active');
-      setActive(e.target.id);
-
-      if (type === 'authors') {
-        setPopupContent(Filters.map(filter => filter.authors).join(', '));
-      } else if (type === 'years') {
-        setPopupContent(Filters.map(filter => filter.years).join(', '));
-      } else if (type === 'genre') {
-        setPopupContent(Filters.map(filter => filter.genre).join(', '));
-      }
+      button.classList.add("active");
+      setActiveButton(button.dataset.filter);
     }
   };
 
-  return (
-    `<div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
-      <div className={filter__button button-author _btn-text ${isActive === 'authors' ? 'active' : ''}} onClick={(e) => handleFilter(e, 'authors')}>
-        исполнителю
-      </div>
-      <div className={filter__button button-year _btn-text ${isActive === 'years' ? 'active' : ''}} onClick={(e) => handleFilter(e, 'years')}>
-        году выпуска
-      </div>
-      <div className={filter__button button-genre _btn-text ${isActive === 'genre' ? 'active' : ''}} onClick={(e) => handleFilter(e, 'genre')}>
-        жанру
-      </div>
+  const renderListItems = (items) => {
+    return items.map((item) => (
+      <li className="filter__item" key={item}>
+        <a href="#" className="filter__link">
+          {item}
+        </a>
+      </li>
+    ));
+  };
 
-      {popupContent && (
-        <div className="popup">
-          <div className="popup__content">{popupContent}</div>
-        </div>
-      )}
-    </div>`
+  return (
+    <div className="centerblock__filter filter">
+      <div className="filter__title">Искать по:</div>
+      <div
+        className="filter__button button-author _btn-text"
+        onClick={toggleMenu}
+        data-filter="authors"
+      >
+        исполнителю
+        <ul className="filter__list scroll">
+          {activeButton === "authors" && (
+            <div className="filter__list-wrapper">
+              <ul>{renderListItems(Filters.map(({ authors }) => authors))}</ul>
+            </div>
+          )}
+        </ul>
+      </div>
+      <div
+        className="filter__button button-year _btn-text"
+        onClick={toggleMenu}
+        data-filter="years"
+      >
+        году выпуска
+        <ul className="filter__list">
+          {activeButton === "years" && (
+            <div className="filter__list-wrapper ">
+              <ul>{renderListItems(Filters.map(({ years }) => years))}</ul>
+            </div>
+          )}
+        </ul>
+      </div>
+      <div
+        className="filter__button button-genre _btn-text"
+        onClick={toggleMenu}
+        data-filter="genre"
+      >
+        жанру
+        <ul className="filter__list">
+          {activeButton === "genre" && (
+            <div className="filter__list-wrapper">
+              <ul>{renderListItems(Filters.map(({ genre }) => genre))}</ul>
+            </div>
+          )}
+        </ul>
+      </div>
+    </div>
   );
-};
+}
 
 export default FilterSearch;

@@ -9,8 +9,6 @@ function TrackListSearch() {
 		</div>
 		<h2 className="centerblock__h2">Треки</h2>
 		<FilterSearch/>
-
-
 		<div className="centerblock__content">
 			<div className="content__title playlist-title">
 				<div className="playlist-title__col col01">Трек</div>
@@ -22,7 +20,6 @@ function TrackListSearch() {
 			</div>
 			<TracklistData/> 
 			</div>
-			
 	</div>
 			);
 		}

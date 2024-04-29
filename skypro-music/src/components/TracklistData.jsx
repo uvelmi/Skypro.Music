@@ -65,7 +65,7 @@ const TracklistData = () => {
 			trackSpan: '(Zeds Dead Remix)'
     },
 			{
-				id: 7,
+			id: 7,
       title: "Mucho Bien",
       author: "HYBIT, Mr. Black, Offer Nissim, Hi Profile",
       album: "Mucho Bien",
@@ -103,9 +103,7 @@ const TracklistData = () => {
 			iconTime: "img/icon/sprite.svg#icon-like",
 			icon: "img/icon/sprite.svg#icon-note",
 			trackSpan: ''
-    },
-		
-
+    }
   ];
 
   return <TrackList Tracks={Tracks} />

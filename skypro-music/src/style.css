@@ -877,3 +877,41 @@ body {
 .volume__progress-line {
   width: 109px;
 }
+
+
+.filter__list-wrapper{
+	margin-top: 20px;
+	height: 18vh;
+	width: 8vw;
+	position: fixed;
+	padding: 16px;
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 12px;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	color: #ffffff;
+	background-color: #313131;
+	gap: 10px;
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+	-ms-overflow-style: none; 
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff;
+}
+
+.filter__item {
+	padding: 10px;
+	
+}
+.filter__link {
+	padding-bottom: 20px;
+	color: #ffffff;
+	
+}
+.filter__link:active, .filter__link:hover {
+  border-color: #ad61ff;
+  color: #ad61ff;
+  cursor: pointer;
+	text-decoration: underline;
+}
