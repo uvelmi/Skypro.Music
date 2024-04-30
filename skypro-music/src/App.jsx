@@ -1,24 +1,34 @@
 
-import './style.css'
-import NavMenu from './components/NavMenu'
-import TrackListSearch from './components/TracklistSearch'
-import SideBar from './components/Sidebar'
-import AudioPlayer from './components/AudioPlayer'
+
+import NavMenu from './components/NavMenu/NavMenu'
+import TrackListSearch from './components/TracklistSearch/TracklistSearch'
+import SideBar from './components/Sidebar/Sidebar'
+import AudioPlayer from './components/AudioPlayer/AudioPlayer'
+import * as S from './App.styles'
+
+import { GlobalStyle } from './GlobalStyles';
+
+
 
 
 function App() {
   return (
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
+		<>
+		<GlobalStyle />
+    <S.Wrapper>
+      <S.Container>
+        <S.Main>
+
 					<NavMenu/>
 					<TrackListSearch/>
 					<SideBar/>
 					<AudioPlayer/>
-        </main>
+					
+        </S.Main>
 				<footer className="footer"></footer>
-      </div>
-    </div>
+      </S.Container>
+    </S.Wrapper>
+		</>
   );
 }
 

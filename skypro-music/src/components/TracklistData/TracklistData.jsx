@@ -1,5 +1,5 @@
 
-import TrackList from './Tracklist';
+import TrackList from '../Tracklist/Tracklist';
 
 
 const TracklistData = () => {

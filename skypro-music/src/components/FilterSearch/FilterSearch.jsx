@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import * as S from './FilterSearch.styles'
+
+
 
 const Filters = [
   {
@@ -59,60 +62,57 @@ const FilterSearch = () => {
 
   const renderListItems = (items) => {
     return items.map((item) => (
-      <li className="filter__item" key={item}>
-        <a href="#" className="filter__link">
+      <S.FilterItem key={item}>
+        <S.FilterLink href="#">
           {item}
-        </a>
-      </li>
+        </S.FilterLink>
+      </S.FilterItem>
     ));
   };
 
   return (
-    <div className="centerblock__filter filter">
-      <div className="filter__title">Искать по:</div>
-      <div
-        className="filter__button button-author _btn-text"
+    <S.CenterblockFilter>
+      <S.FilterTitle>Искать по:</S.FilterTitle>
+      <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="authors"
       >
         исполнителю
-        <ul className="filter__list scroll">
+        <ul>
           {activeButton === "authors" && (
-            <div className="filter__list-wrapper">
+            <S.FilterListWrapper>
               <ul>{renderListItems(Filters.map(({ authors }) => authors))}</ul>
-            </div>
+            </S.FilterListWrapper>
           )}
         </ul>
-      </div>
-      <div
-        className="filter__button button-year _btn-text"
+      </S.FilterButtonBtnText>
+      <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="years"
       >
         году выпуска
-        <ul className="filter__list">
+        <ul>
           {activeButton === "years" && (
-            <div className="filter__list-wrapper ">
+            <S.FilterListWrapper>
               <ul>{renderListItems(Filters.map(({ years }) => years))}</ul>
-            </div>
+            </S.FilterListWrapper>
           )}
         </ul>
-      </div>
-      <div
-        className="filter__button button-genre _btn-text"
+      </S.FilterButtonBtnText>
+      <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="genre"
       >
         жанру
-        <ul className="filter__list">
+        <ul>
           {activeButton === "genre" && (
-            <div className="filter__list-wrapper">
+            <S.FilterListWrapper>
               <ul>{renderListItems(Filters.map(({ genre }) => genre))}</ul>
-            </div>
+            </S.FilterListWrapper>
           )}
         </ul>
-      </div>
-    </div>
+      </S.FilterButtonBtnText>
+    </S.CenterblockFilter>
   );
 }
 
