@@ -906,12 +906,20 @@ body {
 }
 .filter__link {
 	padding-bottom: 20px;
-	color: #ffffff;
-	
+	color: #ffffff;	
 }
+
 .filter__link:active, .filter__link:hover {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
 	text-decoration: underline;
+}
+
+.filter__btn.active{
+	border: none;
+  color: #ad61ff;
+  cursor: pointer;
+	text-decoration: underline;
+	border-color: #ad61ff;
 }

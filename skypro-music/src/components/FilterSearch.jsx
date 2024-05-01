@@ -43,24 +43,20 @@ const Filters = [
   }
 ];
 
+
+
 const FilterSearch = () => {
   const [activeButton, setActiveButton] = useState("");
 
   const toggleMenu = (e) => {
-    const button = e.target;
-    if (button.classList.contains("active")) {
-      button.classList.remove("active");
-      setActiveButton("");
-    } else {
-      button.classList.add("active");
-      setActiveButton(button.dataset.filter);
-    }
+		const filter = e.target.dataset.filter;
+		setActiveButton(filter === activeButton ? "" : filter);
   };
 
   const renderListItems = (items) => {
     return items.map((item) => (
       <li className="filter__item" key={item}>
-        <a href="#" className="filter__link">
+        <a  href="#" className="filter__link filter__btn active">
           {item}
         </a>
       </li>
@@ -76,27 +72,27 @@ const FilterSearch = () => {
         data-filter="authors"
       >
         исполнителю
-        <ul className="filter__list scroll">
-          {activeButton === "authors" && (
+        {activeButton === "authors" && (
+          <ul className="filter__list scroll ">
             <div className="filter__list-wrapper">
               <ul>{renderListItems(Filters.map(({ authors }) => authors))}</ul>
             </div>
-          )}
-        </ul>
+          </ul>
+        )}
       </div>
       <div
-        className="filter__button button-year _btn-text"
+        className="filter__button button-year _btn-text "
         onClick={toggleMenu}
         data-filter="years"
       >
         году выпуска
-        <ul className="filter__list">
-          {activeButton === "years" && (
-            <div className="filter__list-wrapper ">
+        {activeButton === "years" && (
+          <ul className="filter__list scroll">
+            <div className="filter__list-wrapper">
               <ul>{renderListItems(Filters.map(({ years }) => years))}</ul>
             </div>
-          )}
-        </ul>
+          </ul>
+        )}
       </div>
       <div
         className="filter__button button-genre _btn-text"
@@ -104,16 +100,16 @@ const FilterSearch = () => {
         data-filter="genre"
       >
         жанру
-        <ul className="filter__list">
-          {activeButton === "genre" && (
+        {activeButton === "genre" && (
+          <ul className="filter__list scroll">
             <div className="filter__list-wrapper">
               <ul>{renderListItems(Filters.map(({ genre }) => genre))}</ul>
             </div>
-          )}
-        </ul>
+          </ul>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default FilterSearch;
