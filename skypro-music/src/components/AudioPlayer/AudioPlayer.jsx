@@ -5,15 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import * as S from './AudioPlayer.styles'
 
 
-function AudioPlayer() {
-	const [isLoading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		}, 5000);
-		return () => clearTimeout(timer);
-	}, []);
+function AudioPlayer({ isLoading }) {
 	return (
 		
 <S.Bar>

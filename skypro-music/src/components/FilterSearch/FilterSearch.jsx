@@ -50,14 +50,8 @@ const FilterSearch = () => {
   const [activeButton, setActiveButton] = useState("");
 
   const toggleMenu = (e) => {
-    const button = e.target;
-    if (button.classList.contains("active")) {
-      button.classList.remove("active");
-      setActiveButton("");
-    } else {
-      button.classList.add("active");
-      setActiveButton(button.dataset.filter);
-    }
+		const filter = e.target.dataset.filter;
+		setActiveButton(filter === activeButton ? "" : filter);
   };
 
   const renderListItems = (items) => {
@@ -78,39 +72,39 @@ const FilterSearch = () => {
         data-filter="authors"
       >
         исполнителю
+				{activeButton === "authors" && (
         <ul>
-          {activeButton === "authors" && (
             <S.FilterListWrapper>
               <ul>{renderListItems(Filters.map(({ authors }) => authors))}</ul>
             </S.FilterListWrapper>
-          )}
         </ul>
+				)}
       </S.FilterButtonBtnText>
       <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="years"
       >
         году выпуска
+				{activeButton === "years" && (
         <ul>
-          {activeButton === "years" && (
             <S.FilterListWrapper>
               <ul>{renderListItems(Filters.map(({ years }) => years))}</ul>
             </S.FilterListWrapper>
-          )}
         </ul>
+				 )}
       </S.FilterButtonBtnText>
       <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="genre"
       >
         жанру
+				{activeButton === "genre" && (
         <ul>
-          {activeButton === "genre" && (
             <S.FilterListWrapper>
               <ul>{renderListItems(Filters.map(({ genre }) => genre))}</ul>
             </S.FilterListWrapper>
-          )}
         </ul>
+				)}
       </S.FilterButtonBtnText>
     </S.CenterblockFilter>
   );
