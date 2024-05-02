@@ -916,10 +916,3 @@ body {
 	text-decoration: underline;
 }
 
-.filter__btn.active{
-	border: none;
-  color: #ad61ff;
-  cursor: pointer;
-	text-decoration: underline;
-	border-color: #ad61ff;
-}

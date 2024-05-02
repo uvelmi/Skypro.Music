@@ -56,7 +56,7 @@ const FilterSearch = () => {
   const renderListItems = (items) => {
     return items.map((item) => (
       <li className="filter__item" key={item}>
-        <a  href="#" className="filter__link filter__btn active">
+        <a  href="#" className="filter__link">
           {item}
         </a>
       </li>

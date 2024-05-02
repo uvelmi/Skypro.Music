@@ -3,15 +3,8 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 
-function PlayList() {
-	const [isLoading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		}, 5000);
-		return () => clearTimeout(timer);
-	}, []);
+function PlayList({ isLoading }) {
+	
   return (
 		<div className="sidebar__block">
 			<div className="sidebar__list">

@@ -1,6 +1,6 @@
 import PlayList from './Playlist'
 
-function SideBar() {
+function SideBar({ isLoading }) {
   return (
 		<div className="main__sidebar sidebar">
 		<div className="sidebar__personal">
@@ -12,7 +12,9 @@ function SideBar() {
 			</div>
 		</div>
 
-		<PlayList/>
+		<>
+      <PlayList isLoading={isLoading} />
+    </>
 	</div>
 	);
 	}

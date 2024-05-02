@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-function AudioPlayer() {
-	const [isLoading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		}, 5000);
-		return () => clearTimeout(timer);
-	}, []);
+function AudioPlayer({ isLoading }) {
 	return (
 		
 <div className="bar">
