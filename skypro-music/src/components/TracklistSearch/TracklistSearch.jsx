@@ -1,8 +1,8 @@
 import FilterSearch from '../FilterSearch/FilterSearch'
-import TracklistData from '../TracklistData/TracklistData'
+import TrackList from '../Tracklist/Tracklist'
 import * as S from './TracklistSearch.styles'
 
-function TrackListSearch() {
+function TrackListSearch({isLoading}) {
   return (
 		<S.MainCenterblock>
 		<S.CenterblockSearch >
@@ -20,7 +20,7 @@ function TrackListSearch() {
 					<S.PlaylistTitleSvg alt="time"><use xlinkHref="img/icon/sprite.svg#icon-watch"></use></S.PlaylistTitleSvg>
 				</S.Col04>
 			</S.ContentTitle>
-			<TracklistData/> 
+			<TrackList isLoading={isLoading}/> 
 			</S.CenterblockContent>
 			
 	</S.MainCenterblock>

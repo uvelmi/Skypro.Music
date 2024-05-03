@@ -29,9 +29,10 @@ function App() {
         <S.Main>
 
 					<NavMenu/>
-					<TrackListSearch/>
+					
 					
 					<>
+					<TrackListSearch isLoading={isLoading} />
 					<SideBar isLoading={isLoading} />
       <AudioPlayer isLoading={isLoading} />
     </>
