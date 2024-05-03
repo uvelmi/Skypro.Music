@@ -7,7 +7,7 @@ import AudioPlayer from './components/AudioPlayer/AudioPlayer'
 import * as S from './App.styles'
 import React, { useState, useEffect } from "react";
 import { GlobalStyle } from './GlobalStyles';
-import TrackList from './components/Tracklist/Tracklist'
+
 
 
 
@@ -30,8 +30,9 @@ function App() {
 
 					<NavMenu/>
 					<TrackListSearch/>
-					<SideBar/>
+					
 					<>
+					<SideBar isLoading={isLoading} />
       <AudioPlayer isLoading={isLoading} />
     </>
 					

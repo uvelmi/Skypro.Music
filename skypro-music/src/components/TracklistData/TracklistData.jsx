@@ -2,7 +2,7 @@
 import TrackList from '../Tracklist/Tracklist';
 
 
-const TracklistData = () => {
+const TracklistData = ({isLoading}) => {
   const Tracks = [
 		{
 			id: 1,
