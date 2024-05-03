@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import * as S from './FilterSearch.styles'
 
+import classNames from 'classnames';
+
 
 
 const Filters = [
@@ -70,6 +72,7 @@ const FilterSearch = () => {
       <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="authors"
+				className={classNames('filter-button',{active: activeButton === "authors"})}
       >
         исполнителю
 				{activeButton === "authors" && (
@@ -83,7 +86,8 @@ const FilterSearch = () => {
       <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="years"
-      >
+				className={classNames('filter-button',{active: activeButton === "years"})}
+				>
         году выпуска
 				{activeButton === "years" && (
         <ul>
@@ -96,6 +100,7 @@ const FilterSearch = () => {
       <S.FilterButtonBtnText
         onClick={toggleMenu}
         data-filter="genre"
+				className={classNames('filter-button',{active: activeButton === "genre"})}
       >
         жанру
 				{activeButton === "genre" && (

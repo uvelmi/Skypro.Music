@@ -68,15 +68,19 @@ export const FilterButton = styled.div`
 	&:not(:last-child) {
     margin-right: 10px;
   }
-
-`
+	&.active {
+		border-color: #ad61ff;
+		color: #ad61ff;
+		cursor: pointer;
+	}
+	`
 export const FilterButtonBtnText = styled(FilterButton)`
 &:hover {
   border-color: #d9b6ff;
   color: #d9b6ff;
   cursor: pointer;
 }
-	&:active {
+	&.active {
 		border-color: #ad61ff;
 		color: #ad61ff;
 		cursor: pointer;
