@@ -1,11 +1,8 @@
-// import PlayList from '../Playlist/Playlist'
 import * as S from './Sidebar.styles'
 
 import React, { useState, useEffect } from "react";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-
-// import * as S from './Playlist.styles'
 
 
 function SideBar({isLoading}) {
@@ -49,14 +46,6 @@ function SideBar({isLoading}) {
 				</S.SidebarItem>
 			</S.SidebarList>
 		</S.SidebarBlock>
-
-{/* export default PlayList; */}
-		
-		{/* <>
-      <PlayList isLoading={isLoading} />
-    </>
-      */}
-    
 		
 	</S.MainSidebar>
 	);
