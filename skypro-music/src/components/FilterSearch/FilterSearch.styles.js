@@ -63,9 +63,15 @@ export const FilterButton = styled.div`
     border: 1px solid #ffffff;
     border-radius: 60px;
     padding: 6px 20px;
+    cursor: pointer;
 
     &:not(:last-child) {
         margin-right: 10px;
+    }
+    &.active {
+        border-color: #ad61ff;
+        color: #ad61ff;
+        cursor: pointer;
     }
     ${({ $active }) =>
         $active &&
