@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import * as S from './NavMenu.styles'
-// import { useNavigate } from 'react-router-dom';
-// const navigate = useNavigate();
+// import { NavLink } from 'react-router-dom';
+import { NavBar } from '../nav-bar/NavBar'
+
 
 const NavMenu = () => {
+// const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleMenu = () => {
@@ -24,10 +26,10 @@ const NavMenu = () => {
                 {isOpen && (
                     <S.MenuList>
                         <S.MenuItem>
-                            <S.MenuLink href="/">Главное</S.MenuLink>
+												<NavBar to="/" text="Главное" />
                         </S.MenuItem>
                         <S.MenuItem>
-                            <S.MenuLink href="../../favourites/">Мой плейлист</S.MenuLink>
+												<NavBar to="/favourites/" text="Мой плейлист" />
                         </S.MenuItem>
                         <S.MenuItem>
                             <S.MenuLink href="../signin.html">Войти</S.MenuLink>
