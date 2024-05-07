@@ -1,11 +1,12 @@
 import React from 'react'
-import './signin.styles.js'
-import SignInContent from './components/signin'
+// import './signin.styles.js'
+import SignInContent from './SignInContent'
+import { GlobalStyle } from '../../../GlobalStyles';
 
-import { GlobalStyle } from '../../GlobalStyles.js'
-import * as S from './signin.styles.js'
+import * as S from './signin.styles.js';
 
-function SignIn() {
+
+export function SignIn() {
     return (
         <>
             <GlobalStyle />
@@ -14,8 +15,9 @@ function SignIn() {
                     <SignInContent />
                 </S.ContainerEnter>
             </S.Wrapper>
+						
         </>
     )
 }
 
-export default SignIn
+

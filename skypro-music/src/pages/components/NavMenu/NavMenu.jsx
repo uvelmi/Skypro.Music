@@ -32,7 +32,7 @@ const NavMenu = () => {
 												<NavBar to="/favourites/" text="Мой плейлист" />
                         </S.MenuItem>
                         <S.MenuItem>
-                            <S.MenuLink href="../signin.html">Войти</S.MenuLink>
+												<NavBar to="/login" text="Войти" />
                         </S.MenuItem>
                     </S.MenuList>
                 )}

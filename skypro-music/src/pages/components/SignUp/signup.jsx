@@ -1,19 +1,22 @@
 import React from 'react'
-import '../../signup.styles.js'
-import SignUpContent from './components/signup'
-import { GlobalStyle } from '../../GlobalStyles.js'
+// import '../../signup.styles.js'
+import SignUpContent from './SignUpContent'
 
-function SignUp() {
+import { GlobalStyle } from '../../../GlobalStyles';
+import * as S from './signup.styles.js'
+
+
+export function SignUp() {
     return (
         <>
             <GlobalStyle />
-            <StyledWrapper>
-                <StyledContainerSignup>
+            <S.Wrapper>
+                <S.ContainerSignup>
                     <SignUpContent />
-                </StyledContainerSignup>
-            </StyledWrapper>
+                </S.ContainerSignup>
+            </S.Wrapper>
         </>
     )
 }
 
-export default SignUp
+

@@ -1,7 +1,9 @@
 import React from 'react'
 import * as S from './signin.styles'
+import { useNavigate } from 'react-router-dom';
 
 function SignInContent() {
+	const navigate = useNavigate();
     return (
         <S.ModalBlock>
             <S.ModalFormLogin action="#">
@@ -18,12 +20,12 @@ function SignInContent() {
                     placeholder="Пароль"
                 />
                 <S.ModalBtnEnter>
-                    <S.ModalBtnEnterA href="../index.html">
+                    <S.ModalBtnEnterA onClick={() => navigate("/")}>
                         Войти
                     </S.ModalBtnEnterA>
                 </S.ModalBtnEnter>
                 <S.ModalBtnSignup>
-                    <S.ModalBtnSignupA href="signup.html">
+                    <S.ModalBtnSignupA onClick={() => navigate("/register")}>
                         Зарегистрироваться
                     </S.ModalBtnSignupA>
                 </S.ModalBtnSignup>
