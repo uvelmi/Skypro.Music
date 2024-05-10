@@ -27,20 +27,20 @@ export const Main = styled.main`
     justify-content: space-between;
 `
 export const FavouritePage = styled.div`
-		margin: 0 auto;
+    margin: 0 auto;
 `
 
 export const FavouriteText = styled.h1`
-margin: 0 auto;
-padding-top: 400px;
-text-align: center;
-font-size: 70px;
-cursor: pointer;
+    margin: 0 auto;
+    padding-top: 400px;
+    text-align: center;
+    font-size: 70px;
+    cursor: pointer;
 `
 
 export const Button = styled.button`
-margin: 0 auto;
-padding-top: 400px;
-text-align: center;
-font-size: 70px;
+    margin: 0 auto;
+    padding-top: 400px;
+    text-align: center;
+    font-size: 70px;
 `

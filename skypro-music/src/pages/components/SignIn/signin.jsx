@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import './signin.styles.js'
 import SignInContent from './SignInContent'
-import { GlobalStyle } from '../../../GlobalStyles';
+import { GlobalStyle } from '../../../GlobalStyles'
+// import { useLocation, useNavigate } from "react-router-dom";
 
-import * as S from './signin.styles.js';
-
+import * as S from './signin.styles.js'
 
 export function SignIn() {
     return (
@@ -15,9 +15,6 @@ export function SignIn() {
                     <SignInContent />
                 </S.ContainerEnter>
             </S.Wrapper>
-						
         </>
     )
 }
-
-

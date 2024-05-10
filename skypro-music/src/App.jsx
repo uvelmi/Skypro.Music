@@ -4,12 +4,15 @@ import { GlobalStyle } from './GlobalStyles'
 import { AppRoutes } from './Routes'
 import { NavBar } from './pages/components/nav-bar/NavBar'
 import Cookies from 'js-cookie'
+// import { useNavigate } from "react-router-dom";
+
 function App() {
-	const userToken = Cookies.get('token') // => '1234'
+    const user = Cookies.get('user', '1234')
+
     return (
         <S.Wrapper>
             <NavBar />
-            <AppRoutes user={userToken} />
+            <AppRoutes user={user} />
             <GlobalStyle />
         </S.Wrapper>
     )

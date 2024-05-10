@@ -1,9 +1,11 @@
 import React from 'react'
 import * as S from './signin.styles'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 function SignInContent() {
-	const navigate = useNavigate();
+    Cookies.set('user', '1234')
+    const navigate = useNavigate()
     return (
         <S.ModalBlock>
             <S.ModalFormLogin action="#">
@@ -20,12 +22,16 @@ function SignInContent() {
                     placeholder="Пароль"
                 />
                 <S.ModalBtnEnter>
-                    <S.ModalBtnEnterA onClick={() => navigate("/")}>
+                    <S.ModalBtnEnterA
+                        onClick={() => {
+                            navigate('/')
+                        }}
+                    >
                         Войти
                     </S.ModalBtnEnterA>
                 </S.ModalBtnEnter>
                 <S.ModalBtnSignup>
-                    <S.ModalBtnSignupA onClick={() => navigate("/register")}>
+                    <S.ModalBtnSignupA onClick={() => navigate('/register')}>
                         Зарегистрироваться
                     </S.ModalBtnSignupA>
                 </S.ModalBtnSignup>
