@@ -4,7 +4,7 @@ import { GlobalStyle } from './GlobalStyles'
 import { AppRoutes } from './Routes'
 
 import Cookies from 'js-cookie'
-// import { useNavigate } from "react-router-dom";
+
 
 function App() {
     const user = Cookies.get('user', '1234')

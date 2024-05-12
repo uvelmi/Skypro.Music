@@ -18,12 +18,12 @@ function SignUpContent() {
                 <S.ModalInput type="text" name="login" placeholder="Почта" />
                 <S.ModalInput
                     type="password"
-                    name="password"
+                    className="password"
                     placeholder="Пароль"
                 />
                 <S.ModalInput
                     type="password"
-                    name="password"
+                    className="password"
                     placeholder="Повторите пароль"
                 />
                 <S.ModalBtnSignupEnt>

@@ -1,11 +1,15 @@
-import React from 'react'
 import * as S from './signin.styles'
 import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import React, { useState } from 'react'
 
 function SignInContent() {
-    Cookies.set('user', '1234')
+    const [user, setUser] = useState('')
     const navigate = useNavigate()
+    const handleLogin = () => {
+        Cookies.set('user', '1234')
+        navigate('/')
+    }
     return (
         <S.ModalBlock>
             <S.ModalFormLogin action="#">
@@ -16,17 +20,13 @@ function SignInContent() {
                 </a>
                 <S.Login type="text" name="login" placeholder="Почта" />
                 <S.ModalInput
-                    class="password"
+                    className="password"
                     type="password"
                     name="password"
-                    placeholder="Пароль"
+                    placeholder="Пароль" onChange={(e) => setUser(e.target.value)}
                 />
                 <S.ModalBtnEnter>
-                    <S.ModalBtnEnterA
-                        onClick={() => {
-                            navigate('/')
-                        }}
-                    >
+								<S.ModalBtnEnterA onClick={() => handleLogin()}>
                         Войти
                     </S.ModalBtnEnterA>
                 </S.ModalBtnEnter>

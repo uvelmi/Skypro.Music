@@ -6,9 +6,9 @@ import { Categories } from '../../components/Sidebar/Sidebar'
 export function Category() {
     const { id } = useParams()
 
-		if (!id) {
-			return null;
-	}
+    if (!id) {
+        return null
+    }
     const category = Categories[id - 1]
     const navigate = useNavigate()
     return (

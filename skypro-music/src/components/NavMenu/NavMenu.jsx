@@ -1,11 +1,8 @@
 import { useState } from 'react'
 import * as S from './NavMenu.styles'
-// import { NavLink } from 'react-router-dom';
 import { NavBar } from '../nav-bar/NavBar'
 
-
 const NavMenu = () => {
-// const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleMenu = () => {
@@ -26,13 +23,13 @@ const NavMenu = () => {
                 {isOpen && (
                     <S.MenuList>
                         <S.MenuItem>
-												<NavBar to="/" text="Главное" />
+                            <NavBar to="/" text="Главное" />
                         </S.MenuItem>
                         <S.MenuItem>
-												<NavBar to="/favourites/" text="Мой плейлист" />
+                            <NavBar to="/favourites/" text="Мой плейлист" />
                         </S.MenuItem>
                         <S.MenuItem>
-												<NavBar to="/login" text="Выйти" />
+                            <NavBar to="/login" text="Выйти" />
                         </S.MenuItem>
                     </S.MenuList>
                 )}

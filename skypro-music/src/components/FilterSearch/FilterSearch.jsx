@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import * as S from './FilterSearch.styles'
 
-import classNames from 'classnames'
-
 const Filters = [
     {
         authors: 'Michael Jackson',
