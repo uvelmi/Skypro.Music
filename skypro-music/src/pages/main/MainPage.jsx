@@ -1,7 +1,9 @@
-import NavMenu from '../components/NavMenu/NavMenu'
-import TrackListSearch from '../components/TracklistSearch/TracklistSearch'
-import SideBar from '../components/Sidebar/Sidebar'
-import AudioPlayer from '../components/AudioPlayer/AudioPlayer'
+
+import NavMenu from '../../components/NavMenu/NavMenu'
+
+import TrackListSearch from '../../components/TracklistSearch/TracklistSearch'
+import SideBar from '../../components/Sidebar/Sidebar'
+import AudioPlayer from '../../components/AudioPlayer/AudioPlayer'
 import * as S from '../App.styles'
 
 import React, { useState, useEffect } from 'react'

@@ -46,7 +46,7 @@ function SideBar({ isLoading }) {
                             ) : (
                                 <S.SidebarLink
                                     onClick={() =>
-                                        navigate(`/category/${category.id - 1}`)
+                                        navigate(`/category/${category.id}`)
                                     }
                                 >
                                     <S.SidebarImg

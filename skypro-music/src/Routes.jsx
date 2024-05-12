@@ -5,7 +5,9 @@ import { MyPlaylist } from './pages/MyPlaylist/MyPlaylist'
 import { LoginPage } from './pages/login/LogIn'
 import { RegisterPage } from './pages/register/RegisterPage'
 import { Category } from './pages/category/Category.jsx'
-import { ProtectedRoute } from './pages/components/protected-route/ProtectedRoute'
+
+
+import { ProtectedRoute } from './components/protected-route/ProtectedRoute'
 
 import { NotFound } from './pages/not-found/NotFound'
 
