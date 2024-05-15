@@ -114,6 +114,9 @@ export const TrackTimeText = styled.span`
     text-align: right;
     color: #696969;
 `
+export const ErrorTrack = styled.div`
+    font-size: 16px;
+`
 export const TrackTimeSvg = styled.svg`
     width: 14px;
     height: 12px;

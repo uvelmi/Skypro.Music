@@ -4,11 +4,12 @@ import TrackListSearch from '../../components/TracklistSearch/TracklistSearch'
 import SideBar from '../../components/Sidebar/Sidebar'
 import AudioPlayer from '../../components/AudioPlayer/AudioPlayer'
 import * as S from '../App.styles'
+import { getTracks } from '../../api'
 
 import React, { useState, useEffect } from 'react'
 
 export const MainPage = () => {
-    const [isLoading, setIsLoading] = useState(true)
+	const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -16,6 +17,7 @@ export const MainPage = () => {
         }, 5000)
         return () => clearTimeout(timer)
     }, [])
+		
     return (
         <S.Container>
             <S.Main>

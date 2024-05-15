@@ -3,115 +3,38 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import * as S from './Tracklist.styles'
+import { getTracks } from '../../api'
 
-const Tracks = [
-    {
-        id: 1,
-        title: 'Guilt',
-        author: 'Nero',
-        album: 'Welcome Reality',
-        time: '4:44',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '',
-    },
-    {
-        id: 2,
-        title: 'Elektro',
-        author: 'Dynoro, Outwork, Mr. Gee',
-        album: 'Elektro',
-        time: '2:22',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '',
-    },
-    {
-        id: 3,
-        title: 'I’m Fire',
-        author: 'Ali Bakgor',
-        album: 'I’m Fire',
-        time: '2:22',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '',
-    },
-    {
-        id: 4,
-        title: 'Non Stop',
-        author: 'Стоункат, Psychopath',
-        album: 'Non Stop',
-        time: '4:12',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '(Remix)',
-    },
-    {
-        id: 5,
-        title: 'Run Run',
-        author: 'Jaded, Will Clarke, AR/CO',
-        album: 'Run Run',
-        time: '2:54',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '(feat. AR/CO)',
-    },
-    {
-        id: 6,
-        title: 'Eyes on Fire',
-        author: 'Blue Foundation, Zeds Dead',
-        album: 'Eyes on Fire',
-        time: '5:20',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '(Zeds Dead Remix)',
-    },
-    {
-        id: 7,
-        title: 'Mucho Bien',
-        author: 'HYBIT, Mr. Black, Offer Nissim, Hi Profile',
-        album: 'Mucho Bien',
-        time: '3:41',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '(Hi Profile Remix)',
-    },
-    {
-        id: 8,
-        title: 'Knives n Cherries',
-        author: 'minthaze',
-        album: 'Captivating',
-        time: '1:48',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '',
-    },
-    {
-        id: 9,
-        title: 'How Deep Is Your Love',
-        author: 'Calvin Harris, Disciples',
-        album: 'How Deep Is Your Love',
-        time: '3:32',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '',
-    },
-    {
-        id: 10,
-        title: 'Morena',
-        author: 'Tom Boxer',
-        album: 'Soundz Made in Romania',
-        time: '3:36',
-        iconTime: 'img/icon/sprite.svg#icon-like',
-        icon: 'img/icon/sprite.svg#icon-note',
-        trackSpan: '',
-    },
-]
 
-const TrackList = ({ isLoading }) => {
+const TrackList = () => {
+
+	const [isLoading, setIsLoading] = useState( true)
+	const [tracks, setTracks] = useState([])
+	const [errorTrack, setErrorTrack] = useState(null)
+
+	useEffect(() => {
+		async function getAllTracks() {
+		setIsLoading(true)
+		try {
+			const tracks = await getTracks()
+      console.log(tracks);
+      setTracks(tracks)
+			setIsLoading(false)
+	}	catch(error) {
+			setErrorTrack('Не удалось загрузить плейлист, попробуйте позже: ' + error.message)
+			setIsLoading(false)
+			setTracks([])
+		}
+		}
+		getAllTracks();
+  }, [])
+
     return (
+			<div>
+				<S.ErrorTrack>{errorTrack}</S.ErrorTrack>
         <S.ContentPlaylist>
-            {Tracks.map((track, index) => (
-                <S.PlaylistItem key={index}>
+            {tracks.map((track) => (
+                <S.PlaylistItem key={track.id}>
                     <S.PlaylistTrack>
                         <S.TrackTitle>
                             <S.TrackTitleImage>
@@ -124,7 +47,7 @@ const TrackList = ({ isLoading }) => {
                                     />
                                 ) : (
                                     <S.TrackTitleSvg alt="music">
-                                        <use xlinkHref={track.icon}></use>
+                                        <use xlinkHref='img/icon/sprite.svg#icon-note'></use>
                                     </S.TrackTitleSvg>
                                 )}
                             </S.TrackTitleImage>
@@ -137,7 +60,7 @@ const TrackList = ({ isLoading }) => {
                                     />
                                 ) : (
                                     <S.TrackTitleLink href="http://">
-                                        {track.title}{' '}
+                                        {track.name}{' '}
                                         <S.TrackTitleSpan>
                                             {track.trackSpan}
                                         </S.TrackTitleSpan>
@@ -154,7 +77,7 @@ const TrackList = ({ isLoading }) => {
                                 />
                             ) : (
                                 <S.TrackAuthorLink href="http://">
-                                    {track.author}
+                                    {track.author} 
                                 </S.TrackAuthorLink>
                             )}
                         </S.TrackAuthor>
@@ -173,14 +96,15 @@ const TrackList = ({ isLoading }) => {
                         </S.TrackAlbum>
                         <div>
                             <S.TrackTimeSvg alt="time">
-                                <use xlinkHref={track.iconTime}></use>
+                                <use xlinkHref= 'img/icon/sprite.svg#icon-like'></use>
                             </S.TrackTimeSvg>
-                            <S.TrackTimeText>{track.time}</S.TrackTimeText>
+                            <S.TrackTimeText>{track.duration_in_seconds}</S.TrackTimeText>
                         </div>
                     </S.PlaylistTrack>
                 </S.PlaylistItem>
             ))}
         </S.ContentPlaylist>
+				</div>
     )
 }
 
