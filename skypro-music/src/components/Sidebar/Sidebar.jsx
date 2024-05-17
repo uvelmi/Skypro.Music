@@ -20,7 +20,7 @@ export const Categories = [
         alt: 'hindy energy',
     },
 ]
-function SideBar({ isLoading }) {
+function SideBar({ isLoading, setIsLoading }) {
     const navigate = useNavigate()
     return (
         <S.MainSidebar>

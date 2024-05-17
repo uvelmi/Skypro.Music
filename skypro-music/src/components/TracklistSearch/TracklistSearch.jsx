@@ -2,7 +2,7 @@ import FilterSearch from '../FilterSearch/FilterSearch'
 import TrackList from '../Tracklist/Tracklist'
 import * as S from './TracklistSearch.styles'
 
-function TrackListSearch({ isLoading }) {
+function TrackListSearch({ isLoading, setIsLoading, tracks, errorTrack, setCurrentTrack, currentTrack }) {
     return (
         <S.MainCenterblock>
             <S.CenterblockSearch>
@@ -24,7 +24,7 @@ function TrackListSearch({ isLoading }) {
                         </S.PlaylistTitleSvg>
                     </S.Col04>
                 </S.ContentTitle>
-                <TrackList isLoading={isLoading} />
+                <TrackList isLoading={isLoading} setIsLoading={setIsLoading} tracks={tracks} errorTrack={errorTrack} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack}/>
             </S.CenterblockContent>
         </S.MainCenterblock>
     )

@@ -11,7 +11,7 @@ import { ProtectedRoute } from './components/protected-route/ProtectedRoute'
 
 import { NotFound } from './pages/not-found/NotFound'
 
-export const AppRoutes = ({ user }) => {
+export const AppRoutes = ({ isLoading, setIsLoading, user, tracks, setTracks, errorTrack, currentTrack, setCurrentTrack }) => {
     return (
         <Routes>
             <Route path="/login" element={<LoginPage />} />
@@ -21,7 +21,7 @@ export const AppRoutes = ({ user }) => {
                 <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/myplaylist" element={<MyPlaylist />} />
                 <Route path="/category/:id" element={<Category />} />
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<MainPage  isLoading={isLoading} setIsLoading={setIsLoading} tracks={tracks} setTracks={setTracks} errorTrack={errorTrack} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack}/>} />
             </Route>
             <Route path="*" element={<NotFound />} />
         </Routes>

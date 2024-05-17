@@ -75,6 +75,7 @@ export const PlayerBtnPrev = styled(PlayerBtn)`
 export const PlayerBtnPrevSvg = styled.svg`
     width: 15px;
     height: 14px;
+		cursor: pointer;
 `
 
 export const PlayerBtnPlay = styled(PlayerBtn)`
@@ -84,6 +85,7 @@ export const PlayerBtnPlaySvg = styled.svg`
     width: 22px;
     height: 20px;
     fill: #d9d9d9;
+		cursor: pointer;
 `
 
 export const PlayerBtnNext = styled(PlayerBtn)`

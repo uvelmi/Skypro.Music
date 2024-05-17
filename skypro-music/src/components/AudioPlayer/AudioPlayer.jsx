@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+// import Skeleton from 'react-loading-skeleton'
+// import 'react-loading-skeleton/dist/skeleton.css'
 
 import * as S from './AudioPlayer.styles'
 
-function AudioPlayer({ isLoading }) {
+
+
+function AudioPlayer({currentTrack}) {
+
     return (
         <S.Bar>
-            <S.BarContent>
+           {currentTrack ? ( <S.BarContent>
                 <S.BarPlayerProgress></S.BarPlayerProgress>
                 <S.BarPlayerBlock>
                     <S.BarPlayer>
@@ -19,7 +22,9 @@ function AudioPlayer({ isLoading }) {
                             </S.PlayerBtnPrev>
                             <S.PlayerBtnPlay>
                                 <S.PlayerBtnPlaySvg alt="play">
-                                    <use xlinkHref="img/icon/sprite.svg#icon-play"></use>
+                                    <use xlinkHref="img/icon/sprite.svg#icon-play">
+																			<audio src={currentTrack.track_file} />
+																		</use>
                                 </S.PlayerBtnPlaySvg>
                             </S.PlayerBtnPlay>
                             <S.PlayerBtnNext>
@@ -41,46 +46,22 @@ function AudioPlayer({ isLoading }) {
                         <S.PlayerTrackPlay>
                             <S.PlayerTrackContain>
                                 <S.TrackPlayImage>
-                                    {isLoading ? (
-                                        <Skeleton
-                                            width={50}
-                                            height={50}
-                                            baseColor="#202020"
-                                            highlightColor="#444"
-                                        />
-                                    ) : (
                                         <S.TrackPlaySvg alt="music">
                                             <use xlinkHref="img/icon/sprite.svg#icon-note"></use>
                                         </S.TrackPlaySvg>
-                                    )}
                                 </S.TrackPlayImage>
                                 <S.TrackPlayAuthor>
-                                    {isLoading ? (
-                                        <Skeleton
-                                            width={50}
-                                            baseColor="#202020"
-                                            highlightColor="#444"
-                                        />
-                                    ) : (
                                         <S.TrackPlayAuthorLink href="http://">
-                                            Ты та...
+                                            {currentTrack.name} 
                                         </S.TrackPlayAuthorLink>
-                                    )}
                                 </S.TrackPlayAuthor>
                                 <S.TrackPlayAlbum>
-                                    {isLoading ? (
-                                        <Skeleton
-                                            width={50}
-                                            baseColor="#202020"
-                                            highlightColor="#444"
-                                        />
-                                    ) : (
                                         <S.TrackPlayAlbumLink href="http://">
-                                            Баста
+                                             {currentTrack.author}
                                         </S.TrackPlayAlbumLink>
-                                    )}
                                 </S.TrackPlayAlbum>
                             </S.PlayerTrackContain>
+														
                             <S.TrackPlayLikeDis>
                                 <S.TrackdPlay>
                                     <S.TrackdPlayLikeSvg alt="like">
@@ -111,7 +92,7 @@ function AudioPlayer({ isLoading }) {
                         </S.VolumeContent>
                     </S.BarVolumeBlock>
                 </S.BarPlayerBlock>
-            </S.BarContent>
+            </S.BarContent>) : null}
         </S.Bar>
     )
 }
