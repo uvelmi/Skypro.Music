@@ -9,6 +9,7 @@ export const ContentPlaylist = styled.div`
     -ms-flex-direction: column;
     flex-direction: column;
     overflow-y: auto;
+		height: 100%;
 `
 export const PlaylistItem = styled.div`
     width: 100%;
@@ -28,7 +29,6 @@ export const PlaylistTrack = styled.div`
     justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
 `
 export const TrackTitle = styled.div`
     display: -webkit-box;

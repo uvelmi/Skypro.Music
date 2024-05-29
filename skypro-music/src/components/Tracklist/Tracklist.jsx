@@ -5,7 +5,25 @@ import { useSpotify } from "react-spotify-web-playback";
 
 import * as S from './Tracklist.styles'
 
-const TrackList = ({errorTrack, tracks, setCurrentTrack, isLoading, setIsLoading}) => {
+const TrackList = ({errorTrack, audioRef, tracks, currentTrack, setCurrentTrack, isPlaying, isLoading, setIsLoading}) => {
+
+	useEffect(() => {
+		if (tracks.length > 0) {
+				setIsLoading(false)
+		}
+}, [tracks])
+
+const handleTrackClick = (track) => {
+		setCurrentTrack(track)
+}
+
+useEffect(() => {
+	if (currentTrack) {
+			const audio = document.getElementById("audio-player");
+			audio.src = currentTrack.track_file;
+			audio.play();
+	}
+}, [currentTrack])
 
     return (
         <div>
@@ -16,7 +34,8 @@ const TrackList = ({errorTrack, tracks, setCurrentTrack, isLoading, setIsLoading
                         key={track.id}
                         onClick={() => setCurrentTrack(track)}
                     >
-                        <S.PlaylistTrack>
+                        <S.PlaylistTrack  isPlaying={isPlaying && track.id === currentTrack.id}
+                            onClick={() => handleTrackClick(track)}>
                             
                             <S.TrackTitle>
                                 <S.TrackTitleImage>
@@ -88,6 +107,7 @@ const TrackList = ({errorTrack, tracks, setCurrentTrack, isLoading, setIsLoading
                     </S.PlaylistItem>
                 ))}
             </S.ContentPlaylist>
+					
         </div>
     )
 }

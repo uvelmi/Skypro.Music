@@ -88,6 +88,17 @@ export const PlayerBtnPlaySvg = styled.svg`
 		cursor: pointer;
 `
 
+export const TrackdPlayPause = styled(PlayerBtn)`
+margin-right: 23px;
+`
+
+export const TrackdPlayPauseSvg = styled.svg`
+width: 22px;
+height: 20px;
+fill: #d9d9d9;
+cursor: pointer;
+`
+
 export const PlayerBtnNext = styled(PlayerBtn)`
     margin-right: 28px;
     fill: #a53939;
@@ -97,6 +108,7 @@ export const PlayerBtnNextSvg = styled.svg`
     height: 14px;
     fill: inherit;
     stroke: #d9d9d9;
+		cursor: pointer;
 `
 export const PlayerBtnRepeat = styled(PlayerBtn)`
     margin-right: 24px;
@@ -106,6 +118,15 @@ export const PlayerBtnRepeatSvg = styled.svg`
     height: 12px;
     fill: transparent;
     stroke: #696969;
+		cursor: pointer;
+		stroke: ${({ active }) => (active ? '#FFFFFF' : '#696969')};
+	&:active {
+			stroke: #FFFFFF;
+			fill: #FFFFFF;			
+	}
+	&:hover {
+			stroke: #ACACAC;
+	}
 `
 
 export const PlayerBtnShuffle = styled(PlayerBtn)`
@@ -121,6 +142,13 @@ export const PlayerBtnShuffleSvg = styled.svg`
     height: 12px;
     fill: transparent;
     stroke: #696969;
+		cursor: pointer;
+		&:active {
+			stroke: #FFFFFF;
+	}	
+	&:hover {
+			stroke: #ACACAC;
+	}
 `
 export const PlayerTrackPlay = styled.div`
     display: -webkit-box;
@@ -166,6 +194,7 @@ export const TrackPlaySvg = styled.svg`
     height: 17px;
     fill: transparent;
     stroke: #4e4e4e;
+		cursor: pointer;
 `
 export const TrackPlayAuthor = styled.div`
     -ms-grid-row: 1;
@@ -207,6 +236,13 @@ export const TrackPlayLikeDis = styled.div`
     -ms-flex-align: center;
     align-items: center;
     margin-left: 26%;
+		cursor: pointer;
+		&:active {
+			stroke: #FFFFFF;
+	}	
+	&:hover {
+			stroke: #ACACAC;
+	}
 `
 
 export const TrackdPlay = styled.div`
@@ -217,6 +253,13 @@ export const TrackdPlayLikeSvg = styled.svg`
     height: 12px;
     fill: transparent;
     stroke: #696969;
+		cursor: pointer;
+		&:active {
+			stroke: #B672FF;
+	}	
+	&:hover {
+			stroke: #ACACAC;
+	}
 `
 
 export const TrackdPlayDislike = styled(TrackdPlay)`
@@ -228,6 +271,7 @@ export const TrackdPlayDislikeSvg = styled.svg`
     height: 13px;
     fill: transparent;
     stroke: #696969;
+		cursor: pointer;
 `
 export const BarVolumeBlock = styled.div`
     width: auto;
@@ -263,6 +307,7 @@ export const VolumeSvg = styled.svg`
     width: 13px;
     height: 18px;
     fill: transparent;
+		cursor: pointer;
 `
 export const VolumeProgress = styled.div`
     width: 109px;
@@ -270,4 +315,8 @@ export const VolumeProgress = styled.div`
 
 export const VolumeProgressLine = styled.input`
     width: 109px;
+		cursor: pointer;
+		&:active {
+			stroke: #B672FF;
+	}	
 `
