@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { useSpotify } from "react-spotify-web-playback";
+import { useSpotify } from 'react-spotify-web-playback'
 
 import * as S from './Tracklist.styles'
 
-const TrackList = ({errorTrack, audioRef, tracks, currentTrack, setCurrentTrack, isPlaying, isLoading, setIsLoading}) => {
+const TrackList = ({
+    errorTrack,
+    tracks,
+    currentTrack,
+    setCurrentTrack,
+    isPlaying,
+    isLoading,
+    setIsLoading,
+}) => {
+    useEffect(() => {
+        if (tracks.length > 0) {
+            setIsLoading(false)
+        }
+    }, [tracks])
 
-	useEffect(() => {
-		if (tracks.length > 0) {
-				setIsLoading(false)
-		}
-}, [tracks])
+    const handleTrackClick = (track) => {
+        setCurrentTrack(track)
+    }
 
-const handleTrackClick = (track) => {
-		setCurrentTrack(track)
-}
-
-useEffect(() => {
-	if (currentTrack) {
-			const audio = document.getElementById("audio-player");
-			audio.src = currentTrack.track_file;
-			audio.play();
-	}
-}, [currentTrack])
+    useEffect(() => {
+        if (currentTrack) {
+            const audio = document.getElementById('audio-player')
+            audio.src = currentTrack.track_file
+            audio.play()
+        }
+    }, [currentTrack])
 
     return (
         <div>
@@ -34,12 +41,15 @@ useEffect(() => {
                         key={track.id}
                         onClick={() => setCurrentTrack(track)}
                     >
-                        <S.PlaylistTrack  isPlaying={isPlaying && track.id === currentTrack.id}
-                            onClick={() => handleTrackClick(track)}>
-                            
+                        <S.PlaylistTrack
+                            isPlaying={
+                                isPlaying && track.id === currentTrack.id
+                            }
+                            onClick={() => handleTrackClick(track)}
+                        >
                             <S.TrackTitle>
                                 <S.TrackTitleImage>
-																{isLoading ? (
+                                    {isLoading ? (
                                         <Skeleton
                                             width={50}
                                             height={50}
@@ -53,7 +63,7 @@ useEffect(() => {
                                     )}
                                 </S.TrackTitleImage>
                                 <div>
-																{isLoading ? (
+                                    {isLoading ? (
                                         <Skeleton
                                             width={300}
                                             baseColor="#202020"
@@ -70,7 +80,7 @@ useEffect(() => {
                                 </div>
                             </S.TrackTitle>
                             <S.TrackAuthor>
-														{isLoading ? (
+                                {isLoading ? (
                                     <Skeleton
                                         width={250}
                                         baseColor="#202020"
@@ -83,7 +93,7 @@ useEffect(() => {
                                 )}
                             </S.TrackAuthor>
                             <S.TrackAlbum>
-														{isLoading ? (
+                                {isLoading ? (
                                     <Skeleton
                                         width={317}
                                         baseColor="#202020"
@@ -107,7 +117,6 @@ useEffect(() => {
                     </S.PlaylistItem>
                 ))}
             </S.ContentPlaylist>
-					
         </div>
     )
 }

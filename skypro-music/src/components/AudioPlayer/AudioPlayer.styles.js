@@ -119,7 +119,7 @@ export const PlayerBtnRepeatSvg = styled.svg`
     fill: transparent;
     stroke: #696969;
 		cursor: pointer;
-		stroke: ${({ active }) => (active ? '#FFFFFF' : '#696969')};
+		stroke: ${({ $active }) => ($active ? '#FFFFFF' : '#696969')};
 	&:active {
 			stroke: #FFFFFF;
 			fill: #FFFFFF;			

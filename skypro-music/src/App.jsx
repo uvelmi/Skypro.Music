@@ -6,44 +6,49 @@ import { getTracks } from './api'
 
 import Cookies from 'js-cookie'
 
-// import Skeleton from 'react-loading-skeleton'
-// import 'react-loading-skeleton/dist/skeleton.css'
-
-
 function App() {
-    const user = Cookies.get('user', '1234');
+    const user = Cookies.get('user', '1234')
 
-	const [isLoading, setIsLoading] = useState(true)
-	const [tracks, setTracks] = useState([])
-	const [errorTrack, setErrorTrack] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+    const [tracks, setTracks] = useState([])
+    const [errorTrack, setErrorTrack] = useState(null)
 
-	useEffect(() => {
-		const getAllTracks = async () => {
-			try {
-				setIsLoading(true);
-				const tracks = await getTracks();
-				console.log(tracks);
-				setTracks(tracks);
-			} catch (error) {
-				setErrorTrack(
-					'Не удалось загрузить плейлист, попробуйте позже: ' + error.message
-				);
-				setTracks([]);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-	
-		getAllTracks();
-	}, []);
+    useEffect(() => {
+        const getAllTracks = async () => {
+            try {
+                setIsLoading(true)
+                const tracks = await getTracks()
+                console.log(tracks)
+                setTracks(tracks)
+            } catch (error) {
+                setErrorTrack(
+                    'Не удалось загрузить плейлист, попробуйте позже: ' +
+                        error.message
+                )
+                setTracks([])
+            } finally {
+                setIsLoading(true)
+            }
+        }
 
+        getAllTracks()
+    }, [])
 
+    const [currentTrack, setCurrentTrack] = useState(null)
 
-	const [currentTrack, setCurrentTrack] = useState(null);
-	
     return (
         <S.Wrapper>
-            <AppRoutes  isLoading={isLoading} setIsLoading={setIsLoading} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack} user={user} tracks={tracks} setTracks={setTracks} errorTrack={errorTrack} setErrorTrack={setErrorTrack}/>
+            <AppRoutes
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                currentTrack={currentTrack}
+                setCurrentTrack={setCurrentTrack}
+                user={user}
+                tracks={tracks}
+                setTracks={setTracks}
+                errorTrack={errorTrack}
+                setErrorTrack={setErrorTrack}
+            />
             <GlobalStyle />
         </S.Wrapper>
     )
