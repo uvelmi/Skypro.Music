@@ -1,5 +1,21 @@
 import { styled } from 'styled-components'
 
+export const ContentPlaylistSlider = styled.div`
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    scrollbar-width: thin;
+    scrollbar-color: #4e4e4e #313131;
+    position: fixed;
+    padding-right: 23px;
+`
+
 export const ContentPlaylist = styled.div`
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9,7 +25,6 @@ export const ContentPlaylist = styled.div`
     -ms-flex-direction: column;
     flex-direction: column;
     overflow-y: auto;
-		height: 100%;
 `
 export const PlaylistItem = styled.div`
     width: 100%;
@@ -29,6 +44,7 @@ export const PlaylistTrack = styled.div`
     justify-content: space-between;
     -webkit-box-align: center;
     -ms-flex-align: center;
+    align-items: center;
 `
 export const TrackTitle = styled.div`
     display: -webkit-box;

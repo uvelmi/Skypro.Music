@@ -27,7 +27,7 @@ function App() {
                 )
                 setTracks([])
             } finally {
-                setIsLoading(true)
+                setIsLoading(false)
             }
         }
 

@@ -46,6 +46,8 @@ body {
   height: 100%;
   font-family: "StratosSkyeng", sans-serif;
   color: #ffffff;
+	
+    scrollbar-width: thin;
 }
 
 ._btn-icon:hover svg {
