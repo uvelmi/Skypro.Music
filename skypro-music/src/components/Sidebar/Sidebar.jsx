@@ -2,6 +2,8 @@ import * as S from './Sidebar.styles'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/authContext'
+import { useContext } from 'react'
 
 export const Categories = [
     {
@@ -22,11 +24,17 @@ export const Categories = [
 ]
 function SideBar({ isLoading, setIsLoading }) {
     const navigate = useNavigate()
+		const handleRegister = () => {
+			localStorage.removeItem('user')
+			navigate('/login')
+		}
+
+		const [userData] = useContext(AuthContext)
     return (
         <S.MainSidebar>
             <S.SidebarPersonal>
-                <S.SidebarPersonalName>Sergey.Ivanov</S.SidebarPersonalName>
-                <S.SidebarIcon>
+                <S.SidebarPersonalName>{userData ?? 'Не авторизован'}</S.SidebarPersonalName>
+                <S.SidebarIcon onClick={handleRegister}>
                     <svg alt="logout">
                         <use xlinkHref="img/icon/sprite.svg#logout"></use>
                     </svg>

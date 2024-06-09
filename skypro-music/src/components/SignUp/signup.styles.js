@@ -21,7 +21,6 @@ export const ModalBlock = styled.div`
 `
 export const ModalFormLogin = styled.form`
     width: 366px;
-    height: 439px;
     background-color: #ffffff;
     border-radius: 12px;
     display: -webkit-box;
@@ -136,4 +135,94 @@ export const ModalBtnSignupEntA = styled.a`
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    &:hover {
+        background-color: #3f007d;
+    }
+    &:active {
+        background-color: #271a58;
+    }
+`
+export const ModalButtonRegister = styled(ModalBtnSignupEnt)`
+    width: 278px;
+    height: 52px;
+    background-color: transparent;
+    border: 1px solid #d0cece;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.05px;
+    color: #000000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+`
+export const Buttons = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 60px;
+    width: 100%;
+`
+const Button = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    width: 278px;
+    height: 52px;
+    border-radius: 6px;
+    border: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+
+    &:disabled {
+        background-color: #303030;
+    }
+`
+export const PrimaryButton = styled(Button)`
+    & a {
+        width: 100%;
+        height: 100%;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.05px;
+        color: #000000;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    &:active {
+        background-color: #d9d9d9;
+    }
+    &:hover {
+        background-color: #f4f5f6;
+    }
+`
+
+export const Error = styled.div`
+    color: coral;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+    text-align: left;
 `

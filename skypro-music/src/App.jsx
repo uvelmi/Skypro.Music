@@ -3,15 +3,19 @@ import React, { useState, useEffect } from 'react'
 import { GlobalStyle } from './GlobalStyles'
 import { AppRoutes } from './Routes'
 import { getTracks } from './api'
+import { AuthContext } from './context/authContext'
 
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 
 function App() {
-    const user = Cookies.get('user', '1234')
+    // const user = Cookies.get('user', '1234')
 
     const [isLoading, setIsLoading] = useState(true)
     const [tracks, setTracks] = useState([])
     const [errorTrack, setErrorTrack] = useState(null)
+    const [userData, setUserData] = useState(
+        JSON.parse(localStorage.getItem('user')) ?? 'Не авторизован'
+    )
 
     useEffect(() => {
         const getAllTracks = async () => {
@@ -37,20 +41,22 @@ function App() {
     const [currentTrack, setCurrentTrack] = useState(null)
 
     return (
-        <S.Wrapper>
-            <AppRoutes
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                currentTrack={currentTrack}
-                setCurrentTrack={setCurrentTrack}
-                user={user}
-                tracks={tracks}
-                setTracks={setTracks}
-                errorTrack={errorTrack}
-                setErrorTrack={setErrorTrack}
-            />
-            <GlobalStyle />
-        </S.Wrapper>
+        <AuthContext.Provider value={[userData, setUserData]}>
+            <S.Wrapper>
+                <AppRoutes
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
+                    currentTrack={currentTrack}
+                    setCurrentTrack={setCurrentTrack}
+                    user={localStorage.getItem('user')}
+                    tracks={tracks}
+                    setTracks={setTracks}
+                    errorTrack={errorTrack}
+                    setErrorTrack={setErrorTrack}
+                />
+                <GlobalStyle />
+            </S.Wrapper>
+        </AuthContext.Provider>
     )
 }
 

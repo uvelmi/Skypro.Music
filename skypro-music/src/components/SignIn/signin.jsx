@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import SignInContent from './SignInContent'
+import React, { useEffect, useState, useContext } from 'react'
+import AuthPage from './AuthPage'
 import { GlobalStyle } from '../../GlobalStyles'
-import * as S from './signin.styles.js'
+import * as S from './AuthPage.styles.js'
 
 export function SignIn() {
     return (
@@ -9,7 +9,7 @@ export function SignIn() {
             <GlobalStyle />
             <S.Wrapper>
                 <S.ContainerEnter>
-                    <SignInContent />
+                    <AuthPage />
                 </S.ContainerEnter>
             </S.Wrapper>
         </>
