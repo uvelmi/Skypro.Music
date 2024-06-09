@@ -48,6 +48,7 @@ export const MenuList = styled.ul`
 export const MenuItem = styled.li`
     padding: 5px 0;
     margin-bottom: 16px;
+		cursor: pointer;
 `
 export const MenuLink = styled.a`
     color: #ffffff;
