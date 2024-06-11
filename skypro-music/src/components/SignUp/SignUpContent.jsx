@@ -97,7 +97,8 @@ export default function SignUpContent() {
                 {error && <S.Error>{error}</S.Error>}
                 <S.ModalBtnSignupEnt
                     ref={registerButtonRef}
-                    onClick={() => {
+                    onClick={(e) => {
+											e.preventDefault();
                         handleRegister({ email, password })
                     }}
                 >

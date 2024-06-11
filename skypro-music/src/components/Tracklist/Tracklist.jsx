@@ -37,10 +37,8 @@ const TrackList = ({
     return (
         <div>
             <S.ErrorTrack>{errorTrack}</S.ErrorTrack>
-
             <S.ContentPlaylist>
                 <S.ContentPlaylistSlider
-   
                 >
                     {tracksToUse.map((track) => (
                         <S.PlaylistItem
