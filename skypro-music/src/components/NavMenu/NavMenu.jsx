@@ -5,11 +5,9 @@ import { NavBar } from '../nav-bar/NavBar'
 
 const NavMenu = () => {
     const [isOpen, setIsOpen] = useState(false)
-
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
-
 		const navigate = useNavigate()
 		const onClick = () => {
 			const user = localStorage.getItem('user')
@@ -39,7 +37,6 @@ const NavMenu = () => {
                             <NavBar to="/favourites/" text="Мой плейлист" />
                         </S.MenuItem>
                         <S.MenuItem onClick={onClick}>{localStorage.getItem('user') ? 'Выйти' : 'Войти'}
-                            {/* <NavBar to="/login" text="Выйти" /> */}
                         </S.MenuItem>
                     </S.MenuList>
                 )}

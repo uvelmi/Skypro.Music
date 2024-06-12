@@ -5,10 +5,7 @@ import { MyPlaylist } from './pages/MyPlaylist/MyPlaylist'
 import { LoginPage } from './pages/login/LogIn'
 import { RegisterPage } from './pages/register/RegisterPage'
 import { Category } from './pages/category/Category.jsx'
-
-
 import { ProtectedRoute } from './components/protected-route/ProtectedRoute'
-
 import { NotFound } from './pages/not-found/NotFound'
 
 export const AppRoutes = ({ isLoading, setIsLoading, user, tracks, setTracks, errorTrack, currentTrack, setCurrentTrack }) => {
@@ -16,7 +13,6 @@ export const AppRoutes = ({ isLoading, setIsLoading, user, tracks, setTracks, er
         <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-
             <Route element={<ProtectedRoute isAllowed={Boolean(user)} />}>
                 <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/myplaylist" element={<MyPlaylist />} />

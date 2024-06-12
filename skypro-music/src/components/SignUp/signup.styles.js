@@ -90,7 +90,6 @@ export const ModalInput = styled.input`
         color: #d0cece;
     }
 `
-
 export const ModalBtnSignupEnt = styled.button`
     width: 278px;
     height: 62px;
@@ -107,7 +106,6 @@ export const ModalBtnSignupEnt = styled.button`
     align-items: center;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-
     justify-content: center;
     &:active {
         background-color: #271a58;
@@ -176,7 +174,6 @@ const Button = styled.button`
     align-items: center;
     justify-content: center;
     text-decoration: none;
-
     width: 278px;
     height: 52px;
     border-radius: 6px;
@@ -185,7 +182,6 @@ const Button = styled.button`
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
-
     &:disabled {
         background-color: #303030;
     }
@@ -217,7 +213,6 @@ export const PrimaryButton = styled(Button)`
         background-color: #f4f5f6;
     }
 `
-
 export const Error = styled.div`
     color: coral;
     font-weight: 400;

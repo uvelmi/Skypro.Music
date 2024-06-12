@@ -26,7 +26,6 @@ export const CenterblockFilter = styled.div`
 export const FilterLink = styled.a`
     padding-bottom: 20px;
     color: #ffffff;
-
     &:active,
     &:hover {
         border-color: #ad61ff;
@@ -37,6 +36,7 @@ export const FilterLink = styled.a`
 `
 export const FilterListWrapper = styled.div`
     margin-top: 20px;
+    z-index: 3;
     height: 18vh;
     width: 8vw;
     position: fixed;
@@ -64,7 +64,6 @@ export const FilterButton = styled.div`
     border-radius: 60px;
     padding: 6px 20px;
     cursor: pointer;
-
     &:not(:last-child) {
         margin-right: 10px;
     }

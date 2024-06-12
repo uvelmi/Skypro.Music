@@ -24,16 +24,17 @@ export const Categories = [
 ]
 function SideBar({ isLoading, setIsLoading }) {
     const navigate = useNavigate()
-		const handleRegister = () => {
-			localStorage.removeItem('user')
-			navigate('/login')
-		}
-
-		const [userData] = useContext(AuthContext)
+    const handleRegister = () => {
+        localStorage.removeItem('user')
+        navigate('/login')
+    }
+    const [userData] = useContext(AuthContext)
     return (
         <S.MainSidebar>
             <S.SidebarPersonal>
-                <S.SidebarPersonalName>{userData ?? 'Не авторизован'}</S.SidebarPersonalName>
+                <S.SidebarPersonalName>
+                    {userData ?? 'Не авторизован'}
+                </S.SidebarPersonalName>
                 <S.SidebarIcon onClick={handleRegister}>
                     <svg alt="logout">
                         <use xlinkHref="img/icon/sprite.svg#logout"></use>

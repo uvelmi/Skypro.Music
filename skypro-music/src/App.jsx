@@ -4,19 +4,13 @@ import { GlobalStyle } from './GlobalStyles'
 import { AppRoutes } from './Routes'
 import { getTracks } from './api'
 import { AuthContext } from './context/authContext'
-
-// import Cookies from 'js-cookie'
-
 function App() {
-    // const user = Cookies.get('user', '1234')
-
     const [isLoading, setIsLoading] = useState(true)
     const [tracks, setTracks] = useState([])
     const [errorTrack, setErrorTrack] = useState(null)
     const [userData, setUserData] = useState(
         JSON.parse(localStorage.getItem('user')) ?? 'Не авторизован'
     )
-
     useEffect(() => {
         const getAllTracks = async () => {
             try {
@@ -34,12 +28,9 @@ function App() {
                 setIsLoading(false)
             }
         }
-
         getAllTracks()
     }, [])
-
     const [currentTrack, setCurrentTrack] = useState(null)
-
     return (
         <AuthContext.Provider value={[userData, setUserData]}>
             <S.Wrapper>

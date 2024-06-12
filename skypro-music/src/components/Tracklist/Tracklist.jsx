@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-
 import * as S from './Tracklist.styles'
 
 const TrackList = ({
@@ -18,11 +17,9 @@ const TrackList = ({
             setIsLoading(false)
         }
     }, [tracks])
-
     const handleTrackClick = (track) => {
         setCurrentTrack(track)
     }
-
     useEffect(() => {
         if (currentTrack) {
             const audio = document.getElementById('audio-player')
@@ -30,19 +27,16 @@ const TrackList = ({
             audio.play()
         }
     }, [currentTrack])
-
     const placeholderTracks = new Array(10).fill({})
     const tracksToUse = tracks.length > 0 ? tracks : placeholderTracks
-
     return (
         <div>
             <S.ErrorTrack>{errorTrack}</S.ErrorTrack>
             <S.ContentPlaylist>
-                <S.ContentPlaylistSlider
-                >
-                    {tracksToUse.map((track) => (
+                <S.ContentPlaylistSlider>
+                    {tracksToUse.map((track, id) => (
                         <S.PlaylistItem
-                            key={track.id}
+                            key={id}
                             onClick={() => setCurrentTrack(track)}
                         >
                             <S.PlaylistTrack

@@ -96,7 +96,6 @@ function AudioPlayer({
                                             <use xlinkHref="img/icon/sprite.svg#icon-next"></use>
                                         </S.PlayerBtnNextSvg>
                                     </S.PlayerBtnNext>
-
                                     <S.PlayerBtnRepeat onClick={toggleLoop}>
                                         <S.PlayerBtnRepeatSvg
                                             alt="repeat"
@@ -154,7 +153,6 @@ function AudioPlayer({
                                             )}
                                         </S.TrackPlayAlbum>
                                     </S.PlayerTrackContain>
-
                                     <S.TrackPlayLikeDis>
                                         <S.TrackdPlay>
                                             <S.TrackdPlayLikeSvg alt="like">

@@ -1,15 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom'
 import * as S from './AuthPage.styles'
 import { useEffect, useState, useContext, useRef } from 'react'
-import { userLogin, getToken } from '../../api'
+import { userLogin } from '../../api'
 import { AuthContext } from '../../context/authContext'
 
-export default function AuthPage({ isLoginMode = true }) {
+export default function AuthPage() {
     const [error, setError] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [repeatPassword, setRepeatPassword] = useState('')
-    const [userData, setUserData] = useContext(AuthContext)
+    const [, repeatPassword] = useState('')
+    const [, setUserData] = useContext(AuthContext)
     const loginButtonRef = useRef(null)
     const navigate = useNavigate()
 
@@ -44,12 +44,9 @@ export default function AuthPage({ isLoginMode = true }) {
         loginButtonRef.current.disabled = false
         navigate('/')
     }
-
-    // Сбрасываем ошибку если пользователь меняет данные на форме или меняется режим формы
     useEffect(() => {
         setError(null)
     }, [email, password, repeatPassword])
-
     return (
         <S.PageContainer>
             <S.ModalForm>

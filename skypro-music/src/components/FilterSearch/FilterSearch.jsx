@@ -46,12 +46,10 @@ const Filters = [
 
 const FilterSearch = () => {
     const [activeButton, setActiveButton] = useState('')
-
     const toggleMenu = (e) => {
         const filter = e.target.dataset.filter
         setActiveButton(filter === activeButton ? '' : filter)
     }
-
     const renderListItems = (items) => {
         return items.map((item) => (
             <S.FilterItem key={item}>
@@ -59,7 +57,6 @@ const FilterSearch = () => {
             </S.FilterItem>
         ))
     }
-
     return (
         <S.CenterblockFilter>
             <S.FilterTitle>Искать по:</S.FilterTitle>

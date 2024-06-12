@@ -1,6 +1,5 @@
 import React from 'react'
 import SignUpContent from './SignUpContent'
-
 import { GlobalStyle } from '../../GlobalStyles'
 import * as S from './signup.styles.js'
 

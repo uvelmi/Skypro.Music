@@ -8,7 +8,6 @@ export async function getTracks() {
     const data = await response.json()
     return data
 }
-
 export async function userRegister({ email, password }) {
     return fetch("https://skypro-music-api.skyeng.tech/user/signup/", {
         method: 'POST',
@@ -22,7 +21,6 @@ export async function userRegister({ email, password }) {
         },
 		})
 }
-
 export async function userLogin({ email, password }) {
     return fetch('https://skypro-music-api.skyeng.tech/user/login/', {
         method: 'POST',

@@ -10,11 +10,18 @@ export default function SignUpContent() {
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
     const [error, setError] = useState('')
-    const [userData, setUserData] = useContext(AuthContext)
+    const [, setUserData] = useContext(AuthContext)
     const registerButtonRef = useRef(null)
     const navigate = useNavigate()
 
     const handleRegister = async ({ email, password }) => {
+        const trimmedEmail = email.trim()
+        const trimmedPassword = password.trim()
+        const trimmedRepeatPassword = repeatPassword.trim()
+        if (!trimmedEmail || !trimmedPassword || !trimmedRepeatPassword) {
+            setError('Нельзя отправлять пустые поля')
+            return
+        }
         if (!email) {
             setError('Не заполнена почта')
             return
@@ -44,14 +51,12 @@ export default function SignUpContent() {
             registerButtonRef.current.disabled = false
             return
         }
-
         const data = await response.json()
         setUserData(data.username)
         localStorage.setItem('user', JSON.stringify(data.username))
         registerButtonRef.current.disabled = false
         navigate('/')
     }
-
     useEffect(() => {
         setError(null)
     }, [email, password, repeatPassword])
@@ -98,7 +103,7 @@ export default function SignUpContent() {
                 <S.ModalBtnSignupEnt
                     ref={registerButtonRef}
                     onClick={(e) => {
-											e.preventDefault();
+                        e.preventDefault()
                         handleRegister({ email, password })
                     }}
                 >
