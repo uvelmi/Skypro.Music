@@ -37,6 +37,13 @@ export const FavouriteText = styled.h1`
     font-size: 70px;
     cursor: pointer;
 `
+export const HomeButton = styled.div`
+    color: #ad61ff;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 53px;
+    cursor: pointer;
+`
 
 export const Button = styled.button`
     margin: 0 auto;

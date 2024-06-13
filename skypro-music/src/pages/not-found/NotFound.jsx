@@ -9,6 +9,9 @@ export const NotFound = () => {
                 <S.FavouriteText onClick={() => navigate('/')}>
                     Page was not found :c
                 </S.FavouriteText>
+								<S.HomeButton onClick={() => navigate('/')}>
+                   Перейти на главную страницу
+                </S.HomeButton>
             </S.FavouritePage>
         </S.Container>
     )
