@@ -143,9 +143,11 @@ export const PlayerBtnShuffleSvg = styled.svg`
     fill: transparent;
     stroke: #696969;
 		cursor: pointer;
-		&:active {
+		stroke: ${({ $active }) => ($active ? '#FFFFFF' : '#696969')};
+	&:active {
 			stroke: #FFFFFF;
-	}	
+			fill: #FFFFFF;			
+	}
 	&:hover {
 			stroke: #ACACAC;
 	}

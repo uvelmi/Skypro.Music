@@ -8,7 +8,7 @@ import { Category } from './pages/category/Category.jsx'
 import { ProtectedRoute } from './components/protected-route/ProtectedRoute'
 import { NotFound } from './pages/not-found/NotFound'
 
-export const AppRoutes = ({ isLoading, setIsLoading, user, tracks, setTracks, errorTrack, currentTrack, setCurrentTrack }) => {
+export const AppRoutes = ({ isLoading, setIsLoading, user, tracks, setTracks, errorTrack, currentTrack, setCurrentTrack, setIsPlaylist, playlist }) => {
     return (
         <Routes>
             <Route path="/login" element={<LoginPage />} />
@@ -17,7 +17,7 @@ export const AppRoutes = ({ isLoading, setIsLoading, user, tracks, setTracks, er
                 <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/myplaylist" element={<MyPlaylist />} />
                 <Route path="/category/:id" element={<Category />} />
-                <Route path="/" element={<MainPage  isLoading={isLoading} setIsLoading={setIsLoading} tracks={tracks} setTracks={setTracks} errorTrack={errorTrack} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack}/>} />
+                <Route path="/" element={<MainPage  isLoading={isLoading} setIsLoading={setIsLoading} tracks={tracks} setTracks={setTracks} errorTrack={errorTrack} currentTrack={currentTrack} setCurrentTrack={setCurrentTrack} setIsPlaylist={setIsPlaylist} playlist={playlist}/>} />
             </Route>
             <Route path="*" element={<NotFound />} />
         </Routes>

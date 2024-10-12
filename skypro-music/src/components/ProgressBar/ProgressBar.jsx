@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import * as S from '../ProgressBar/ProgressBar.styles'
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ProgressBar({audioRef}) {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const refProgress = useRef();
+	const dispatch = useDispatch();
   const handleCurrentTime = (value) => {
     setCurrentTime(value);
     audioRef.current.currentTime = value / duration;
@@ -22,7 +24,7 @@ export default function ProgressBar({audioRef}) {
       audio.removeEventListener("loadedmetadata", () => {});
       audio.removeEventListener("timeupdate", () => {});
     };
-  }, [audioRef]);
+  }, [audioRef, dispatch]);
 	const handleProgressClick = (e) => {
     const progressRect = refProgress.current.getBoundingClientRect();
     const percent = (e.clientX - progressRect.left) / progressRect.width;
